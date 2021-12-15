@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import HomePage from './pages/HomePage';
+import SingPage from "./pages/signpage/SingPage";
+import Navbar from "../src/components/navbar";
+import { Paper,Container } from '@material-ui/core';
+import {ThemeProvider} from '@material-ui/core/styles';
+import { createTheme, adaptV4Theme } from '@mui/material/styles';
+
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'light',
+  },
+});
+
 
 function App() {
   return (
+    <ThemeProvider theme={darkTheme}>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Navbar />
+    <Container>
+    <Paper>
+      <SingPage />
+      </Paper>
+      </Container>
     </div>
+    </ThemeProvider>
   );
 }
 
